@@ -1,5 +1,16 @@
 # HealthForm
 
+clone the project
+change folder to server => cd server
+/server => npm install => npm run start (beck)
+open second terminal 
+in root folder => npm install => npm run start (front)
+
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
 
 ## Development server
