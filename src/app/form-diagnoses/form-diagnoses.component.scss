@@ -1,0 +1,125 @@
+.content {
+  width: 80%;
+  height: 80vh;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 20px 20px;
+  overflow-y: auto;
+
+  .form-diagnoses {
+    font-size: 14px;
+
+    &__label {
+      font-size: 20px;
+      font-weight: bolder;
+      margin-right: 20px;
+    }
+
+    .date-wrapper {
+      display: inline-block;
+      width: 250px;
+      height: 45px;
+      border: solid 1px;
+      border-radius: 5px;
+
+      .date-input{
+        margin-left: 5px;
+        width: 200px;
+        height: 42px;
+        border: none;
+        font-size: 20px;
+      }
+
+      .date-button {
+        border: none;
+        background: transparent;
+
+        .date-button__img {
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .conditions {
+      margin: 40px 0;
+
+      .conditions__header {
+        margin-bottom: 15px;
+      }
+    }
+
+    .conditions__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .conditions__select, .condition__input {
+      width: 48%;
+      height: 45px;
+      border-radius: 5px;
+      border: 1px solid;
+      margin-bottom: 15px;
+      padding-left: 20px;
+      font-size: 20px;
+    }
+
+    .condition__input:after {
+      content: '';
+      border-top: 12px solid #000;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      margin-top: -8px;
+    }
+
+    .warning {
+      display: block;
+      color: red;
+    }
+  }
+
+  .conditions__header .section-result__header {
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  .add-btn {
+    border: none;
+    color: dodgerblue;
+    background: transparent;
+    font-size: 18px;
+  }
+
+  input:focus{
+    outline: none;
+  }
+
+  .submit {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: solid 1px dodgerblue;
+    font-size: 18px;
+    color: dodgerblue;
+    font-weight: bolder;
+    background: transparent;
+
+    &[disabled] {
+      opacity: 50%;
+    }
+  }
+
+  .section-result {
+    margin-top: 20px;
+
+    .result-textarea {
+      width: 100%;
+      height: 200px;
+      overflow-y: auto;
+      font-size: 18px;
+    }
+  }
+}

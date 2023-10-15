@@ -1,0 +1,36 @@
+<main class="content">
+  <form class="form-diagnoses" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label class="form-diagnoses__label">Дата: </label>
+    <div class="date-wrapper">
+      <input class="date-input" type="text" placeholder=" __.__.____" formControlName="date" ngbDatepicker #d="ngbDatepicker" readonly/>
+      <button class="date-button" type="button" (click)="d.toggle()">
+        <img class="date-button__img" ngSrc="assets/calendar.png" alt="cal" height="20" width="20">
+      </button>
+    </div>
+    <span class="warning" *ngIf="form.get('date')?.hasError('date-minimum')">Валідація дати: не може бути в минулому</span>
+
+    <div class="conditions" formArrayName="conditions">
+      <h3 class="conditions__header">Діагнози за ICPC-2</h3>
+      <ng-container *ngFor="let diagnose of diagnoses.controls; let i = index" [formGroupName]="i">
+        <div class="conditions__wrapper">
+          <input class="condition__input" id="condition" list="diagnoses" formControlName="condition">
+          <datalist class="conditions__select" id="diagnoses">
+            <option *ngFor="let condition of conditions" value="{{condition.code}} {{condition.name}}"></option>
+          </datalist>
+          <input class="condition__input" id="note{{i}}" type="text" placeholder="коментар" formControlName="note">
+        </div>
+        <span class="warning" *ngIf="diagnose.get('condition')?.hasError('required') && diagnose.get('condition')?.touched">
+            виберіть діагноз
+        </span>
+      </ng-container>
+        <button class="add-btn" type="button" (click)="addDiagnose()">+ дотати ще</button>
+    </div>
+
+    <button type="submit" class="submit" [disabled]="form.invalid">Сформувати JSON</button>
+  </form>
+
+  <section class="section-result">
+    <h3 class="section-result__header">JSON:</h3>
+    <textarea class="result-textarea" [value]="textAreaJSON"></textarea>
+  </section>
+</main>
